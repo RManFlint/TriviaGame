@@ -1,4 +1,4 @@
-"use strict";
+
 
 function RamonesQuestion(quesR, ansR1, ansR2, ansR3, ansR4, corrNum) {
 	this.questionRamones= quesR,
@@ -15,8 +15,9 @@ var question2 = new RamonesQuestion("What NY punk bar launched the Ramones' care
 var question3 = new RamonesQuestion("What bar in KC did the Ramones play in January 1978?", "One Block West", "The Merry-Go-Round", "Jimmy's Jigger", "Your Momma's Basement", 1);
 var question4 = new RamonesQuestion("Who replaced Tommy Ramone as the drummer?", "Eddie Ramone", "Vincey Ramone", "Marky Ramone", "Debbie Ramone", 4);
 var question5 = new RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", 2);
+console.log(question1.questionRamones)
+$(".questionDiv").text(question1.questionRamones);
 
-$("#questionDiv").html(question1.questionRamones);
 
 /*var wordGuess;
 var wordGuessArray= [];
