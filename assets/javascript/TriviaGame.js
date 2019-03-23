@@ -10,23 +10,29 @@ function RamonesQuestion(quesR, ansR1, ansR2, ansR3, ansR4, corrNum) {
 	],   
     this.correctNum=corrNum
 } 
-var question1 = new RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", 2);
-var question2 = new RamonesQuestion("What NY punk bar launched the Ramones' career?", "CBGB's", "Heebie Jeebie's", "JuJubes", "Applebee's", 1);
-var question3 = new RamonesQuestion("What bar in KC did the Ramones play in January 1978?", "One Block West", "The Merry-Go-Round", "Jimmy's Jigger", "Your Momma's Basement", 1);
-var question4 = new RamonesQuestion("Who replaced Tommy Ramone as the drummer?", "Eddie Ramone", "Vincey Ramone", "Marky Ramone", "Debbie Ramone", 4);
-var question5 = new RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", 2);
-console.log(question1.questionRamones)
+var question1 = new RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", 1);
+var question2 = new RamonesQuestion("What NY punk bar launched the Ramones' career?", "CBGB's", "Heebie Jeebie's", "JuJubes", "Applebee's", 0);
+var question3 = new RamonesQuestion("What bar in KC did the Ramones play in January 1978?", "One Block West", "The Merry-Go-Round", "Jimmy's Jigger", "Your Momma's Basement", 0);
+var question4 = new RamonesQuestion("Who replaced Tommy Ramone as the drummer?", "Eddie Ramone", "Vincey Ramone", "Marky Ramone", "Debbie Ramone", 3);
+var question5 = new RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", 1);
+/*console.log(question1.questionRamones)
+
 $(".questionDiv").text(question1.questionRamones);
+*/
+var ramonesArray = [question1, question2, question3, question4, question5];
+/*console.log(ramonesArray[0].answers[0]);*/
 
+var quesCount = 0; 
+function quizLoad(){
+	$(".questionDiv").text(ramonesArray[quesCount].questionRamones);
+	$("#answer0").text(ramonesArray[quesCount].answers[0]);
+	$("#answer1").text(ramonesArray[quesCount].answers[1]);
+	$("#answer2").text(ramonesArray[quesCount].answers[2]);
+	$("#answer3").text(ramonesArray[quesCount].answers[3]);
 
-/*var wordGuess;
-var wordGuessArray= [];
-var hangWordArray = [];
-var falseCount = 0;
-var falseMsg = "";
-var wrongGuess = [];
-var indexLength=0;
-var playerWins = 0;
+}
+ quizLoad();
+/*
 
 function wordLoad() 
 	{
