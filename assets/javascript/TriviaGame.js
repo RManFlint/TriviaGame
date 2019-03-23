@@ -1,20 +1,22 @@
 
 
-function RamonesQuestion(quesR, ansR1, ansR2, ansR3, ansR4, corrNum) {
-	this.questionRamones= quesR,
-	this.answers=[
-        ansR1,
-        ansR2,
-        ansR3,
-		ansR4	
-	],   
-    this.correctNum=corrNum
+function RamonesQuestion(quesR, ansR1, ansR2, ansR3, ansR4, corrNum) {	
+	return {
+		questionRamones: quesR,
+		answers: [
+			ansR1,
+			ansR2,
+			ansR3,
+			ansR4	
+		],   
+		correctNum:corrNum
+	};
 } 
-var question1 = new RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", 1);
-var question2 = new RamonesQuestion("What NY punk bar launched the Ramones' career?", "CBGB's", "Heebie Jeebie's", "JuJubes", "Applebee's", 0);
-var question3 = new RamonesQuestion("What bar in KC did the Ramones play in January 1978?", "One Block West", "The Merry-Go-Round", "Jimmy's Jigger", "Your Momma's Basement", 0);
-var question4 = new RamonesQuestion("Who replaced Tommy Ramone as the drummer?", "Eddie Ramone", "Vincey Ramone", "Marky Ramone", "Debbie Ramone", 3);
-var question5 = new RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", 1);
+var question1 = RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", "answer1"); 
+var question2 = RamonesQuestion("What NY punk bar launched the Ramones' career?", "CBGB's", "Heebie Jeebie's", "JuJubes", "Applebee's", "answer0");
+var question3 = RamonesQuestion("What bar in KC did the Ramones play in January 1978?", "One Block West", "The Merry-Go-Round", "Jimmy's Jigger", "Your Momma's Basement", "answer0");
+var question4 = RamonesQuestion("Who replaced Tommy Ramone as the drummer?", "Eddie Ramone", "Vincey Ramone", "Marky Ramone", "Debbie Ramone", "answer3");
+var question5 = RamonesQuestion("What was Dee Dee's real name?", "Dietrich Gunther", "Douglas Colvin", "David Jones", "Ronald Trump", "answer1");
 /*console.log(question1.questionRamones)
 
 $(".questionDiv").text(question1.questionRamones);
@@ -29,8 +31,21 @@ function quizLoad(){
 	$("#answer1").text(ramonesArray[quesCount].answers[1]);
 	$("#answer2").text(ramonesArray[quesCount].answers[2]);
 	$("#answer3").text(ramonesArray[quesCount].answers[3]);
-
 }
+
+$(".answers").on("click", function(){
+	console.log ("This.id is " + $(this).attr("id"));
+	console.log ("ramonesArray[quesCount].corrNum is " + ramonesArray[quesCount].correctNum);
+	console.log($(this).attr("id") === ramonesArray[quesCount].correctNum);
+	if ($(this).attr("id") === ramonesArray[quesCount].correctNum){
+		$("#quesResultH3").text("GABBA GABBA HEY! You Got It Right!");
+	} else{
+		console.log("The else loop is working");
+		$("#quesResultH3").text("Have you been sniffing glue?  How can you not know that?");
+	}
+	quesCount++;
+	console.log("quesCount is " + quesCount);
+})
  quizLoad();
 /*
 
