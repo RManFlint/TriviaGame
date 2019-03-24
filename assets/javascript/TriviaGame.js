@@ -24,13 +24,19 @@ $(".questionDiv").text(question1.questionRamones);
 var ramonesArray = [question1, question2, question3, question4, question5];
 /*console.log(ramonesArray[0].answers[0]);*/
 
-var quesCount = 0; 
+var quesCount = 0;
+
 function quizLoad(){
+	//I HAVEN'T TESTED THE FOR LOOP. IT'S HERE TO LOOP THROUGH THE 
+	//ARRAY AND ITERATE THE QUESTIONS
+	//
+	for (i=0; i < ramonesArray.length;i++) 	{
 	$(".questionDiv").text(ramonesArray[quesCount].questionRamones);
 	$("#answer0").text(ramonesArray[quesCount].answers[0]);
 	$("#answer1").text(ramonesArray[quesCount].answers[1]);
 	$("#answer2").text(ramonesArray[quesCount].answers[2]);
-	$("#answer3").text(ramonesArray[quesCount].answers[3]);
+	$("#answer3").text(ramonesArray[quesCount].answers[3]);}
+//THIS REMAINS THE FIRST OBJECT BECAUSE quesCount REMAINS ZERO. 
 }
 
 $(".answers").on("click", function(){
