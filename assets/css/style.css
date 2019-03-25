@@ -6,8 +6,7 @@ body{
     width:600px;
     height: 800px;
     margin: 30px auto;
-    background-image: linear-gradient(
-	    30deg, #33ccff 0%, #ccffff 30%, white 50%, #ccffff 80%, #33ccff 100%);
+    background-image: url("../../assets/images/Ramones.jpg");
     
 }
 #empty-div{
@@ -17,10 +16,21 @@ body{
 	    30deg, #80aaff 0%, #99ccff 30%, white 50%, #99ccff 80%, #80aaff 100%);
 }
 
+#container {
+    width:600px;
+   height:800px;
+    background-color: white;  
+}
+
 .answers {
+    padding:5px 20px;
     cursor:pointer;
 }
 
+#startButtonDiv, .questionDiv, #nextQues, #winsLosses, quesResultH3 {
+    padding:5px 20px;
+    cursor:pointer;
+}
 .red, #playerWins {
     color:red;
     font-size:24px;
