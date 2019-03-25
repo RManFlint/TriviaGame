@@ -1,10 +1,16 @@
 $("#startButton").on("click", function(){
+	//THIS LOADS THE QUESTIONS AND ANSWERS FROM THE ramonesARRAY in the HTML
 	quizLoad();
-	//setTimeout(stopTime, 20);
+	//THE stopTime function disables the buttons so the player can no longer answer questions.
+	setTimeout(stopTime, 1000 * 35);
+	//AFTER THE PLAYER STARTS THE GAME, I HIDE THE START BUTTON
+	$("#startButton").attr("hidden", true);
+	$("#nextQues").attr("hidden", false);
 })
 
 var wins = 0;
 var losses = 0;
+//THIS CREATES SEVEN OBJECTS THAT I WILL 
 function RamonesQuestion(quesR, ansR1, ansR2, ansR3, ansR4, corrNum) {	
 	return {
 		questionRamones: quesR,
@@ -27,10 +33,11 @@ var question7 = RamonesQuestion("What weapon does the eagle hold in its talons o
 
 var ramonesArray = [question1, question2, question3, question4, question5, question6, question7];
 
-//function stopTime (){
-//	$(".answers").off("click");
-//	$("#nextQues").off("click");
-//}
+function stopTime (){
+	$("#startButton").attr("disabled", true);
+	$(".answers").off("click");
+	$("#nextQues").attr("disabled", true);
+}
 
 var quesCount = 0;
 function quizLoad(){
@@ -43,31 +50,25 @@ function quizLoad(){
 }
  
 $(".answers").on("click", function(){
-	console.log ("This.id is " + $(this).attr("id"));
-	console.log ("ramonesArray[quesCount].corrNum is " + ramonesArray[quesCount].correctNum);
-	console.log($(this).attr("id") === ramonesArray[quesCount].correctNum);
 	if ($(this).attr("id") === ramonesArray[quesCount].correctNum){
 		wins++;
 		$("#quesResultH3").text("GABBA GABBA HEY! You Got It Right!");
 	} else{
 		losses++;
-		console.log("The else loop is working");
+		//console.log("The else loop is working");
 		$("#quesResultH3").text("Have you been sniffing glue?  How can you not know that?");
 	}
+	$("#winsLosses").html("<p><h2>You have " + wins+ " right and " + losses+ " wrong.</h2></p>")
 	quesCount++;
 	console.log("quesCount is " + quesCount);
 
 	if (quesCount < 7){
-		console.log("Inside the if statement, QuesCount is " +quesCount);
+		//console.log("Inside the if statement, QuesCount is " +quesCount);
 		$("#nextQues").on("click", function() {
 			quizLoad();
 		})}
 		
 	})
 
-/*	function stopTime (){
-			$(".answers").off("click");
-			$("#nextQues").off("click");
-		}*/
- //quizLoad();
+
 

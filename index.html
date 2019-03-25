@@ -12,7 +12,7 @@
     <!-- We created an empty HTML div. Note that there is no content inside. -->
   <div id= "container"> 
       <div>
-          <input type="button" id = "startButton" value = "Hey! Ho! Let's Go!"></input>
+          <button id = "startButton" >Hey! Ho! Let's Go!</button>
           </div>
     <div class = "questionDiv">&nbsp;</div><br>
     <div id="answerDiv" >
@@ -20,14 +20,20 @@
       <div class = "answers" id ="answer1">&nbsp;</div>
       <div class = "answers" id ="answer2">&nbsp;</div>
       <div class = "answers" id ="answer3">&nbsp;</div>
+    
+    <!--<div><button class = "answers" id ="answer0">&nbsp;</button></div>
+    <div><button class = "answers" id ="answer1">&nbsp;</button></div>
+    <div><button class = "answers" id ="answer2">&nbsp;</button></div>
+    <div><button class = "answers" id ="answer3">&nbsp;</button></div>
+    -->
     </div>
     <div>
-    <input type="button" id = "nextQues" value = "Next Question"></input>
+    <button id = "nextQues" hidden>Next Question</button>
     </div>
     <div class = "quesResult"><p><h2 id= "quesResultH3"></h2></p></div>
 
     <div class= "yourCharacter">
-        <div class = "yourCharacter" id ="chosenViking">&nbsp;</div>
+        <div class = "yourCharacter" id ="winsLosses">&nbsp;</div>
   </div> 
   </div>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
