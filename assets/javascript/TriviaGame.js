@@ -1,8 +1,10 @@
 $("#startButton").on("click", function(){
 	quizLoad();
-//	setTimeout()
+	//setTimeout(stopTime, 20);
 })
 
+var wins = 0;
+var losses = 0;
 function RamonesQuestion(quesR, ansR1, ansR2, ansR3, ansR4, corrNum) {	
 	return {
 		questionRamones: quesR,
@@ -22,25 +24,22 @@ var question4 = RamonesQuestion("Who replaced Tommy Ramone as the drummer?", "Ed
 var question5 = RamonesQuestion("What was Joey's real name?", "Jeffrey Hyman", "Joel Eisenberg", "Joe Manelli", "Abe Schicklgruber", "answer0");
 var question6 = RamonesQuestion("What area of Queens were the Ramones from?", "LaGuardia Gardens", "The Heights", "Forest Hills", "Raymore-Peculiar", "answer2");
 var question7 = RamonesQuestion("What weapon does the eagle hold in its talons on the Ramones logo?", "baseball bat", "switchblade", "a stick of dynamite", "A picture of Rosie O'Donnell naked", "answer0");
-console.log(question1.questionRamones)
-
-//$(".questionDiv").text(question1.questionRamones);
 
 var ramonesArray = [question1, question2, question3, question4, question5, question6, question7];
-/*console.log(ramonesArray[0].answers[0]);*/
+
+//function stopTime (){
+//	$(".answers").off("click");
+//	$("#nextQues").off("click");
+//}
 
 var quesCount = 0;
 function quizLoad(){
-	//I HAVEN'T TESTED THE FOR LOOP. IT'S HERE TO LOOP THROUGH THE 
-	//ARRAY AND ITERATE THE QUESTIONS
-	//
 	for (i=0; i < ramonesArray.length;i++) 	{
 	$(".questionDiv").text(ramonesArray[quesCount].questionRamones);
 	$("#answer0").text(ramonesArray[quesCount].answers[0]);
 	$("#answer1").text(ramonesArray[quesCount].answers[1]);
 	$("#answer2").text(ramonesArray[quesCount].answers[2]);
-	$("#answer3").text(ramonesArray[quesCount].answers[3]);}
-//THIS REMAINS THE FIRST OBJECT BECAUSE quesCount REMAINS ZERO. 
+	$("#answer3").text(ramonesArray[quesCount].answers[3]);} 
 }
  
 $(".answers").on("click", function(){
@@ -48,8 +47,10 @@ $(".answers").on("click", function(){
 	console.log ("ramonesArray[quesCount].corrNum is " + ramonesArray[quesCount].correctNum);
 	console.log($(this).attr("id") === ramonesArray[quesCount].correctNum);
 	if ($(this).attr("id") === ramonesArray[quesCount].correctNum){
+		wins++;
 		$("#quesResultH3").text("GABBA GABBA HEY! You Got It Right!");
 	} else{
+		losses++;
 		console.log("The else loop is working");
 		$("#quesResultH3").text("Have you been sniffing glue?  How can you not know that?");
 	}
@@ -57,11 +58,16 @@ $(".answers").on("click", function(){
 	console.log("quesCount is " + quesCount);
 
 	if (quesCount < 7){
-		console.log("INside the if statement, QuesCount is " +quesCount);
+		console.log("Inside the if statement, QuesCount is " +quesCount);
 		$("#nextQues").on("click", function() {
 			quizLoad();
 		})}
 		
 	})
+
+/*	function stopTime (){
+			$(".answers").off("click");
+			$("#nextQues").off("click");
+		}*/
  //quizLoad();
 
