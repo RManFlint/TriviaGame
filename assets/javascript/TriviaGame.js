@@ -3,11 +3,30 @@ $("#startButton").on("click", function(){
 	quizLoad();
 	//THE stopTime function disables the buttons so the player can no longer answer questions.
 	setTimeout(stopTime, 1000 * 35);
+	//THE CODE BELOW STARTS THE COUNTDOWN CLOCK ON THE PAGE
+	run();
 	//AFTER THE PLAYER STARTS THE GAME, I HIDE THE START BUTTON
 	$("#startButton").attr("hidden", true);
 	$("#nextQues").attr("hidden", false);
 })
+//I STOLE THIS CODE TO THE NEXT PAIR OF HASHMARKS FROM THE interval-solved ACTIVITY BECAUSE CODERS ARE LAZY!!!
+var number = 35;
+var intervalId;
+function run() {
+	clearInterval(intervalId);
+	intervalId = setInterval(decrement, 1000);
+  }
 
+  function decrement() {
+	number--;
+	$("#timeLeft").html("<h2>Better start hoppin' cretin! You've got " + number + " seconds left!</h2>");
+	if (number === 0) {
+	  stop();
+	  alert("Time Up!");
+	}
+  }
+
+ // 
 var wins = 0;
 var losses = 0;
 //THIS CREATES SEVEN OBJECTS THAT I WILL 
