@@ -21,6 +21,8 @@ function run() {
 	number--;
 	$("#timeLeft").html("<h2>Better start hoppin' cretin! You've got " + number + " seconds left!</h2>");
 	if (number === 0) {
+		clearInterval(intervalId);
+		$("#timeLeft").html("<h2> </h2>");
 	  stop();
 	  alert("Time Up!");
 	}
@@ -53,6 +55,8 @@ var question7 = RamonesQuestion("What weapon does the eagle hold in its talons o
 var ramonesArray = [question1, question2, question3, question4, question5, question6, question7];
 
 function stopTime (){
+	//$("#timeLeft").html("<h2> </h2>");
+	$("#timeLeft").html("<h2> </h2>");
 	$("#startButton").attr("disabled", true);
 	$(".answers").off("click");
 	$("#nextQues").attr("disabled", true);
